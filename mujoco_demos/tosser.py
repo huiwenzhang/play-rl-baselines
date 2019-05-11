@@ -14,7 +14,7 @@ sim_state = sim.get_state()
 while True:
     sim.set_state(sim_state)
 
-    for i in range(1000):
+    for i in range(2000):
         if i < 500:
             sim.data.ctrl[:] = 1.0
         else:
@@ -22,5 +22,4 @@ while True:
         sim.step()
         viewer.render()
 
-    if os.getenv('TESTING') is not None:
-        break
+    break
