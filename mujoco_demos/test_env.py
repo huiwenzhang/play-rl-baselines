@@ -19,13 +19,16 @@ for path in xml_files:
         print('Simulation example: ' + env_name)
     except:
         print("Load xml file failed")
-    sim = MjSim(model)
-    viewer = MjViewer(sim)
 
-    t = 0
-    while True:
-        t += 1
-        sim.step()
-        viewer.render()
-        if t > 1500:
-            break
+    # test specific env
+    if env_name.startswith('simple'):
+        sim = MjSim(model)
+        viewer = MjViewer(sim)
+
+        t = 0
+        while True:
+            t += 1
+            sim.step()
+            viewer.render()
+            if t > 1500:
+                break
