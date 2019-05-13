@@ -7,8 +7,7 @@ from mujoco_py import load_model_from_path, MjSim, MjViewer
 import math
 import os
 
-path = os.path.join(os.getcwd(), 'body_interaction.xml')
-print(path)
+path = os.path.join(os.path.dirname(__file__), 'body_interaction.xml')
 model = load_model_from_path(path)
 sim = MjSim(model)
 viewer = MjViewer(sim)
@@ -20,5 +19,5 @@ while True:
     t += 1
     sim.step()
     viewer.render()
-    if t > 100 and os.getenv('TESTING') is not None:
+    if t > 1000:
         break
